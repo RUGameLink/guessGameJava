@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Угадай число</string>
+    <string name="select_game_mode_text">Выберите режим игры</string>
+    <string name="guess_my_number_text">Угадай мое число</string>
+    <string name="guess_the_phone_number_text">Угадать число телефона</string>
+    <string name="start_game_text">Все готово, начинаем!</string>
+    
+    <string name="game_preparation_text">Мы почти готовы</string>
+    <string name="number_of_attempts_text">Количество попыток</string>
+    <string name="min_count_text">Минимальное значение (от)</string>
+    <string name="max_count_text">Максимальное значение (до)</string>
+    <string name="start_text">Начинаем!</string>
+    <string name="error_text">Ошибка! Не все поля заполнены!</string>
+    <string name="num_error_text">Ошибка! Максимальное значение должно быть меньше минимального!</string>
+</resources>
