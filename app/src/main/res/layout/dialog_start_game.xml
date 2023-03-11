@@ -24,6 +24,7 @@
         android:ems="10"
         android:hint="@string/min_count_text"
         android:inputType="number"
+        android:maxLength="3"
         android:minHeight="48dp" />
 
     <EditText
@@ -35,6 +36,7 @@
         android:ems="10"
         android:hint="@string/max_count_text"
         android:inputType="number"
+        android:maxLength="3"
         android:minHeight="48dp" />
 
     <EditText
@@ -47,6 +49,7 @@
         android:ems="10"
         android:hint="@string/number_of_attempts_text"
         android:inputType="number"
+        android:maxLength="3"
         android:minHeight="48dp" />
 
     <LinearLayout

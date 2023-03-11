@@ -12,4 +12,17 @@
     <string name="start_text">Начинаем!</string>
     <string name="error_text">Ошибка! Не все поля заполнены!</string>
     <string name="num_error_text">Ошибка! Максимальное значение должно быть меньше минимального!</string>
+    
+    <string name="number_limit_text">Число загадано в пределах:</string>
+    <string name="phone_number_text">Угадай мое число!</string>
+    <string name="number_attempts_text">У вас осталось попыток: </string>
+    <string name="enter_the_number_text">Введите число: </string>
+    <string name="enter_button_text">Ответить!</string>
+
+    <string name="my_number_text">Угадываем ваше число!</string>
+    <string name="phone_attempts_text">У меня осталось попыток: </string>
+
+    <string name="less_text">Меньше</string>
+    <string name="big_text">Больше</string>
+    <string name="equal_text">Верно!</string>
 </resources>
