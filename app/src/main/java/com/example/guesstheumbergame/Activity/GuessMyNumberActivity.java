@@ -2,13 +2,16 @@ package com.example.guesstheumbergame.Activity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.guesstheumbergame.Game.GuessGame;
 import com.example.guesstheumbergame.R;
 
 public class GuessMyNumberActivity extends AppCompatActivity  {
@@ -17,6 +20,10 @@ public class GuessMyNumberActivity extends AppCompatActivity  {
     private Button equalsBtn;
     private TextView phoneAttemptsText;
     private TextView limitPhoneText;
+    private TextView numText;
+
+    private GuessGame guessGame;
+    private int attempts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +38,46 @@ public class GuessMyNumberActivity extends AppCompatActivity  {
         Bundle arguments = getIntent().getExtras();
         String min = arguments.get("minCount").toString();
         String max = arguments.get("maxCount").toString();
-        String attempts = arguments.get("attempts").toString();
+        attempts = Integer.parseInt(arguments.get("attempts").toString());
         phoneAttemptsText.setText("[" + min + "; " + max + "]");
-        limitPhoneText.setText(attempts);
+        limitPhoneText.setText("" + attempts);
+
+        lessBtn.setOnClickListener(lessBtnListener);
+        bigBtn.setOnClickListener(bigBtnListener);
+        equalsBtn.setOnClickListener(equalsBtnListener);
+
+        guessGame = new GuessGame(Integer.parseInt(max), Integer.parseInt(min));
+        guessGame.checkNumberBigger();
+        numText.setText(guessGame.getMidCount() + "?");
     }
+
+    View.OnClickListener lessBtnListener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            guessGame.lessNum();
+            boolean res = guessGame.checkNumberBigger();
+            checkToWin(res);
+        }
+    };
+
+    View.OnClickListener bigBtnListener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            guessGame.biggerNum();
+            boolean res = guessGame.checkNumberBigger();
+            checkToWin(res);
+        }
+    };
+
+    View.OnClickListener equalsBtnListener = new View.OnClickListener(){
+
+        @Override
+        public void onClick(View v) {
+            endGame();
+        }
+    };
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -46,11 +89,41 @@ public class GuessMyNumberActivity extends AppCompatActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    private void checkToWin(boolean res){
+        String partOne = getString(R.string.end_guess1);
+        String partTwo = getString(R.string.end_guess2);
+        if (res){
+            checkAttempts();
+            numText.setText(partOne + "\n" + guessGame.getMidCount() +  partTwo  + guessGame.getMidCount() + 1);
+            endGame();
+        }
+
+        else{
+            checkAttempts();
+            numText.setText(guessGame.getMidCount() + "?");
+        }
+    }
+
+    private void checkAttempts(){
+        attempts = attempts - 1;
+        limitPhoneText.setText("" + attempts);
+        if(attempts == 0){
+            Toast.makeText(this, "Я проиграл...", Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
+    }
+
+    private void endGame(){
+        Toast.makeText(this, getText(R.string.end_guess_game).toString(), Toast.LENGTH_SHORT).show();
+        this.finish();
+    }
+
     private void init(){
         lessBtn = findViewById(R.id.lessBtn);
         bigBtn = findViewById(R.id.bigBtn);
         equalsBtn = findViewById(R.id.equalsBtn);
         phoneAttemptsText = findViewById(R.id.phoneAttemptsText);
         limitPhoneText = findViewById(R.id.limitPhoneText);
+        numText = findViewById(R.id.gameText);
     }
 }

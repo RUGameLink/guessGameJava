@@ -25,4 +25,8 @@
     <string name="less_text">Меньше</string>
     <string name="big_text">Больше</string>
     <string name="equal_text">Верно!</string>
+
+    <string name="end_guess1">Я устал! Ваше число</string>
+    <string name="end_guess2">или</string>
+    <string name="end_guess_game">Победа! Возвращаемся назад...</string>
 </resources>
