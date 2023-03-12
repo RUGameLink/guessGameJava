@@ -26,8 +26,8 @@
     <string name="big_text">Больше</string>
     <string name="equal_text">Верно!</string>
 
-    <string name="end_guess1">Я устал! Ваше число</string>
-    <string name="end_guess2">или</string>
+    <string name="end_guess1">Я устал! Ваше число </string>
+    <string name="end_guess2"> или </string>
     <string name="end_guess_game">Победа! Возвращаемся назад...</string>
 
     <string name="num_error">Введите число!</string>
