@@ -77,7 +77,7 @@ public class GuessPhoneNumberActivity extends AppCompatActivity  {
         }
     };
 
-    private void checkEqual() { //Функиця проверки введенного значения
+    private void checkEqual() { //Функция проверки введенного значения
         int res = guessTheGame.checkNumber(Integer.parseInt(numEditText.getText().toString())); //Вызов из класса-игры функции проверки введенного числа
         switch (res){  //Проверка результата
             case  1 :  //Если res = 1

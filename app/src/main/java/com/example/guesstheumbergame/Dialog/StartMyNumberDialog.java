@@ -40,7 +40,7 @@ public class StartMyNumberDialog extends DialogFragment{
                 String maxCount = maxCountText.getText().toString();
                 String attempts = attemptsText.getText().toString();
 
-                if(minCount.isEmpty() && maxCount.isEmpty() && attempts.isEmpty()){ //Проверка на пустоту заполняемых элементов
+                if(minCount.isEmpty() || maxCount.isEmpty() || attempts.isEmpty()){ //Проверка на пустоту заполняемых элементов
                     Toast toast = Toast.makeText(getContext(), getString(R.string.error_text),Toast.LENGTH_LONG); //Вывод сообщения о пустоте
                     toast.show();
                 }

@@ -56,7 +56,7 @@ public class GuessGame {
             return 0;
     }
 
-    public boolean checkNumberBigger(){ //Функция поиска числа в заданном диапозоне (бинарный перебор)
+    public boolean checkNumberBigger(){ //Функция поиска числа в заданном диапазоне (бинарный перебор)
         midCount = (maxCount + minCount) / 2; //Вычисляем среднее значение
         String res = "";
         if (midCount == maxCount){ //Если среднее равно максимальному, то
@@ -76,6 +76,7 @@ public class GuessGame {
         return midCount;
     } //Геттер среднего значения
 
+    //Необычные сеттеры, так как они манипулируют внутренней логикой созданного объекта класса, не получая внешние данные
     public void biggerNum(){
         minCount = midCount;
     } //Сеттер присвоения минимальному значению среднего
