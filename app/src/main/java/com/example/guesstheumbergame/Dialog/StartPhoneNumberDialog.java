@@ -15,6 +15,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.guesstheumbergame.Activity.GuessMyNumberActivity;
 import com.example.guesstheumbergame.Activity.GuessPhoneNumberActivity;
+import com.example.guesstheumbergame.Game.GuessGame;
 import com.example.guesstheumbergame.R;
 
 public class StartPhoneNumberDialog extends DialogFragment {

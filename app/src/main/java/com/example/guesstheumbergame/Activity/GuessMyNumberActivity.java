@@ -1,6 +1,8 @@
 package com.example.guesstheumbergame.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -115,7 +117,14 @@ public class GuessMyNumberActivity extends AppCompatActivity  {
 
     private void endGame(){
         Toast.makeText(this, getText(R.string.end_guess_game).toString(), Toast.LENGTH_SHORT).show();
-        this.finish();
+        Handler handler = new Handler();
+        Runnable r = new Runnable() {
+            public void run() {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        };
+        handler.postDelayed(r, 1000);
     }
 
     private void init(){
